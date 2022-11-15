@@ -1,0 +1,28 @@
+<%- include('../partials/Navbar') %> 
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('../partials/Sidebar') %>        
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-3">
+          <h2>Add Topic</h2>
+          <% if (success!=0) { %>
+            <p class="alert alert-success"><%= success %> </p>
+          <% } %>
+          <div class="col-8">
+            <form action="/api/topics/" method="POST">
+                <div class="mb-3">
+                  <label for="topicName" class="form-label">Topic Name</label>
+                  <input type="text" class="form-control" id="topicName" name="topic">
+                  <% if (errorList!=0) { %>
+                    <% if (errorList.topic) { %>
+                        <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                       <% } %>
+                  <% } %>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+        </main>
+      </div>
+    </div>
+<%- include('../partials/Footer') %> 

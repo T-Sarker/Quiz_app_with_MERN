@@ -1,0 +1,11 @@
+.summeryList ul li p {
+    align-self: center;
+    padding: 0px 10px;
+}
+
+.qBadge{
+    display: block;
+    align-self: center;
+    padding: 10px;
+    margin-right: 10px;
+}

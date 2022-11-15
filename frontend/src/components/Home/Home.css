@@ -1,0 +1,28 @@
+/**
+ * Css for Home page
+ *
+ */
+.HomeBanner{
+    height: 80vh;
+    background-image: url('https://cdni.iconscout.com/illustration/premium/thumb/business-team-solving-business-problem-5713047-4756575.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgb(52 7 53);
+}
+
+.bannerDetails {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    max-width: 50%;
+}
+
+.bannerDetails h1,.bannerDetails p{
+    color: #fff !important;
+}
+
+.bannerDetails .btn-outline{
+    color: #fff;
+    border: 2px solid #fff !important;
+    margin-top: 40px;
+}

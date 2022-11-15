@@ -1,0 +1,12 @@
+.bg-section{
+    background-color: rgb(101, 4, 105);
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.rounded-pill, .btn-outline{
+    border: 2px solid rgb(101, 4, 105) !important;
+    font-weight: bold;
+} 

@@ -1,0 +1,25 @@
+<%- include('../partials/Navbar') %> 
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('../partials/Sidebar') %>        
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-3">
+          <h2>Update Topic</h2>
+          
+          <div class="col-8">
+            <% if (topic) { %>
+            <form action="/api/topics/update" method="POST">
+                <div class="mb-3">
+                    <label for="topicName" class="form-label">Topic Name</label>
+                    <input type="hidden" name="id" value="<%= topic._id %>">
+                    <input type="text" class="form-control" id="topicName" name="topic" value="<%= topic.topic %>">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+            <% } %>
+          </div>
+        </main>
+      </div>
+    </div>
+<%- include('../partials/Footer') %> 

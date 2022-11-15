@@ -1,0 +1,17 @@
+.answers:hover{
+        background: #650469;
+        color: #fff;
+        box-shadow: 1px 2px 0px #aaaaaa;
+}
+
+.answer{
+        background: #650469;
+        color: #fff;
+        box-shadow: 1px 2px 0px #aaaaaa;
+}
+
+input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+  }
+   

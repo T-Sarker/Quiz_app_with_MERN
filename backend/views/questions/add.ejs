@@ -1,0 +1,105 @@
+<%- include('../partials/Navbar') %> 
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('../partials/Sidebar') %>        
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 my-3">
+          <h2>Add Topic</h2>
+          <% if (success!=0) { %>
+            <p class="alert alert-success"><%= success %> </p>
+          <% } %>
+          <div class="col-8">
+            <form action="/api/question/add" method="POST">
+                <div class="mb-3">
+                  <label for="topicName" class="form-label">Topic</label>
+                  <% if (topics.length>0) { %>
+                  <select class="form-select" name="topic">
+                    <% topics.forEach(topic => { %>
+                      <option value="<%= topic._id %>"><%= topic.topic %></option>
+                    <% }) %>
+                  </select>
+                  <% } %>
+                  <% if (errorList!=0) { %>
+                    <% if (errorList.topic) { %>
+                        <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                       <% } %>
+                  <% } %>
+                </div>
+                <div class="mb-3">
+                  <label for="question" class="form-label">Question</label>
+                  <input type="text" class="form-control" id="question" name="question">
+                  <% if (errorList!=0) { %>
+                    <% if (errorList.topic) { %>
+                        <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                       <% } %>
+                  <% } %>
+                </div>
+                
+                <div class="row">
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="answer1" class="form-label">Answer Option 1</label>
+                      <input type="text" class="form-control" id="answer1" name="answers[]" required>
+                      <% if (errorList!=0) { %>
+                        <% if (errorList.topic) { %>
+                            <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                           <% } %>
+                      <% } %>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="answer2" class="form-label">Answer Option 2</label>
+                      <input type="text" class="form-control" id="answer2" name="answers[]" required>
+                      <% if (errorList!=0) { %>
+                        <% if (errorList.topic) { %>
+                            <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                           <% } %>
+                      <% } %>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="answer3" class="form-label">Answer Option 3</label>
+                      <input type="text" class="form-control" id="answer3" name="answers[]" required>
+                      <% if (errorList!=0) { %>
+                        <% if (errorList.topic) { %>
+                            <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                           <% } %>
+                      <% } %>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="answer4" class="form-label">Answer Option 4</label>
+                      <input type="text" class="form-control" id="answer4" name="answers[]" required>
+                      <% if (errorList!=0) { %>
+                        <% if (errorList.topic) { %>
+                            <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                           <% } %>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="topicName" class="form-label">Correct Answer No</label>
+                 <select class="form-select" name="correctIndex" id="correctIndex">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                 </select>
+                  <% if (errorList!=0) { %>
+                    <% if (errorList.topic) { %>
+                        <p class="alert alert-danger"><%= errorList.topic.msg %> </p>
+                       <% } %>
+                  <% } %>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+        </main>
+      </div>
+    </div>
+<%- include('../partials/Footer') %> 
