@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import useAuth from '../../../hooks/useAuth'
 import './Navbar.css'
 const Navbar = () => {
+    const { auth, setAuth } = useAuth();
     const allTopics = [{ id: 1, topic: 'Science', status: true }, { id: 2, topic: 'Biology', status: true }, { id: 3, topic: 'Science3', status: true }, { id: 4, topic: 'Science4', status: true }, { id: 5, topic: 'Science5', status: true }, { id: 6, topic: 'Science6', status: true }, { id: 7, topic: 'Science7', status: true },];
     return (
         <div>
@@ -28,12 +30,18 @@ const Navbar = () => {
                             <li className="nav-item me-4">
                                 <NavLink className="nav-link" to="/about">About</NavLink>
                             </li>
-                            <li className="nav-item ms-4">
-                                <NavLink className="nav-link btn rounded-pill btn-outline px-3 login" to="/login">Login</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link btn rounded-pill btn-outline px-3 register" to="/register">Signup</NavLink>
-                            </li>
+
+                            {
+                                auth?.id ? (<li className="nav-item ms-4">
+                                    <NavLink className="nav-link btn rounded-pill btn-outline px-3 login" to="/login" onClick={() => { setAuth({}) }}>Logout</NavLink>
+                                </li>) : (<><li className="nav-item ms-4">
+                                    <NavLink className="nav-link btn rounded-pill btn-outline px-3 login" to="/login">Login</NavLink>
+                                </li>
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link btn rounded-pill btn-outline px-3 register" to="/register">Signup</NavLink>
+                                    </li></>)
+                            }
+
 
                         </ul>
                     </div>

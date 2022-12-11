@@ -10,6 +10,7 @@ require('dotenv').config()
 const HomeRoutes = require('./routes/home')
 const TopicRoutes = require('./routes/topics')
 const QuestionRoutes = require('./routes/questions')
+const AuthRoutes = require('./routes/auth')
 
 const app = express()
 app.use(cors())
@@ -32,5 +33,6 @@ app.listen(PORT, () => {
 
 // route declaration
 app.use('/', HomeRoutes)
+app.use('/api/auth', AuthRoutes)
 app.use('/api/topics', TopicRoutes)
 app.use('/api/question', QuestionRoutes)
